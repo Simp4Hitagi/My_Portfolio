@@ -1,0 +1,78 @@
+:root {
+    --primaryColor: red;
+    --secondaryColor: white;
+}
+
+/* universal selector */
+* {
+    padding: 0;
+    margin: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+header, footer {
+    max-height: 20vh;
+}
+
+
+/* div */
+.div1 {
+    height: 100vh;
+    width: 100%;
+    
+}
+/* nav */
+.nav1 {
+    text-align: center;
+}
+/* nav unordered list */
+.nav1 ul li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    /* padding-left: 10%;
+    padding-right: 10%; */
+    list-style: none;
+    box-sizing: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 40px;
+}
+
+.nav1 ul li a:hover {
+    color: aquamarine;
+    transition: .10s;
+}
+/* body */
+.body {
+    background-image: url(#);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    object-fit: cover; /*keeps quality of image*/
+}
+
+/* h2 Deno's Portfolio */
+span {
+    color: aqua;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    color: var(--primaryColor);
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: row; */
+    flex-flow: row wrap;
+}
+
+.container:nth-last-child(odd) {
+    color: var(--primaryColor)
+}
+
+.content {
+    margin: -640px;
+}
+
