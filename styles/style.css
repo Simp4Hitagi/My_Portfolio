@@ -1,78 +1,90 @@
 :root {
-    --primaryColor: red;
-    --secondaryColor: white;
+    --primaryColor: black;
+    --secondaryColor:  rgb(33, 31, 31); 
+    --tertiaryColor: grey;
+    --fontColor: white;
+    --height: 30vh;
+    --width: 30vw;
 }
 
 /* universal selector */
-* {
-    padding: 0;
+*,
+*::after,
+*::before {
     margin: 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
     box-sizing: border-box;
-    color: white;
+    transition: 3s;
 }
-header, footer {
-    max-height: 20vh;
-}
-
-
-/* div */
-.div1 {
-    height: 100vh;
-    width: 100%;
-    
-}
-/* nav */
-.nav1 {
-    text-align: center;
-}
-/* nav unordered list */
-.nav1 ul li {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 50px;
-    /* padding-left: 10%;
-    padding-right: 10%; */
-    list-style: none;
-    box-sizing: 2px solid transparent;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 40px;
+/* header start */
+header {
+    background-color: var(--secondaryColor);
 }
 
-.nav1 ul li a:hover {
-    color: aquamarine;
-    transition: .10s;
-}
-/* body */
-.body {
-    background-image: url(#);
-    background-repeat: no-repeat;
-    background-color: black;
-    background-size: cover; /* Resize the background image to cover the entire container */
-    object-fit: cover; /*keeps quality of image*/
-}
+/* header end */
 
-/* h2 Deno's Portfolio */
-span {
-    color: aqua;
-}
 
-.container {
+/* start of flip card */
+.logo-container{
+    width: var(--width);
+    height: var(--height);
+    margin-right: auto;
+    position: relative; /*all child elements with position:absolute will be dependant on parent element if parent element has position:relative*/
+    perspective: 100px;
+}
+.front {
+    z-index: 20; /* to bring something to the front*/
+}
+.front:hover {
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    /* transform: rotateY(180deg) rotateX(180deg) rotate(180deg) rotateY(180deg); */
+}
+.back {
+    background-color: var(--tertiaryColor);
     display: flex;
-    gap: 40px;
-    color: var(--primaryColor);
-    /* flex-direction: row-reverse; */
-    /* flex-wrap: row; */
-    flex-flow: row wrap;
+    width: var(--width);
+    height: var(--height);
+    flex-flow: column wrap; /*shortcut for direction and wrap*/
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+/* .front and .back */
+.front, .back {
+    position: absolute;
+    top: 0; /*will let it start from top left*/
+    left: 0; /*will let it start from top left*/
+    width: var(--width);
+    height: var(--height);
+    backface-visibility: hidden; /*to see through an element*/
+    -webkit-backface-visibility: hidden;    
+}
+.logo {
+    max-width: 100%; /*sets the limit to 100%*/
+    width: var(--width);
+    height: var(--height);
+    border-radius: 1em;
+    object-fit: cover; /*sets quality of image and lets a div fit to content*/
+    /* object-position: center; */
+}
+.logo-container:hover .front {
+    /* transform: rotateY(90deg); */
+    transition: 2s; /*transform only works for MS browser*/
+    /* transform: skewY(40deg); */
+    /* transform: rotateX(50deg); */
+}
+/* end of flip card */
+
+/* figure */
+figure {
+    display: flex;
+}
+p {
+    margin-left: 50px;
 }
 
-.container:nth-last-child(odd) {
-    color: var(--primaryColor)
-}
-
-.content {
-    margin: -640px;
+h1, h2, h3, h4, h5, h6, li {
+    color: white;
 }
 
